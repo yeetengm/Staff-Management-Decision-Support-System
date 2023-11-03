@@ -1,0 +1,55 @@
+Sub Transferformdatabase()
+'
+' Transferformdatabase Macro
+' Transfer the data from RegistrationDatabase
+'
+
+'
+    Range("A6:Q44").Select
+    ActiveWindow.SmallScroll Down:=-24
+    Selection.Copy
+    Sheets("ManageRegistrationData").Select
+    Range("A6").Select
+    ActiveSheet.Paste
+    Sheets("ManagerMainPage").Select
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Range("A6").Select
+    ActiveSheet.Paste
+    Range("B10").Select
+End Sub
+
+
+
+
+
+
+Sub TransferFromRegistrationDatabase()
+'
+' TransferFromRegistrationDatabase Macro
+' Transfer the data from RegistrationDatabase & ManageRegistrationData
+'
+
+'
+    Sheets("RegistrationDatabase").Select
+    Range("A6:Q100").Select
+    Selection.Copy
+    Sheets("ManageRegistrationData").Select
+    ActiveWindow.ScrollColumn = 8
+    ActiveWindow.ScrollColumn = 7
+    ActiveWindow.ScrollColumn = 6
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Range("A6").Select
+    ActiveSheet.Paste
+    Sheets("ManageRegistrationData").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("ManagerMainPage").Select
+    Range("A6").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+End Sub
